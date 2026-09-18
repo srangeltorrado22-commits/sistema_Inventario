@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bottega | Inventario</title>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="/index.html">
+            <span class="brand-mark">
+                <i class="bi bi-box-seam-fill"></i>
+            </span>
+            Bottega
+        </a>
+
+        <nav class="navigation" aria-label="Navegación principal">
+            <a class="active" href="/index.html">
+                <i class="bi bi-grid-1x2-fill"></i>
+                Inicio
+            </a>
+
+            <a href="/html/registros.html">
+                <i class="bi bi-plus-circle"></i>
+                Registrar
+            </a>
+
+            <a href="/html/productos.html">
+                <i class="bi bi-boxes"></i>
+                Productos
+            </a>
+        </nav>
+
+        <div class="profile">
+            <span>SR</span>
+
+            <div>
+                <strong>Sophia Rangel</strong>
+                <small>Panel principal</small>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-shell">
+
+        <section class="hero">
+            <div>
+                <p class="eyebrow">
+                    <span></span>
+                    RESUMEN GENERAL
+                </p>
+
+                <h1>
+                    Tu inventario,
+                    <br>
+                    <em>bajo control.</em>
+                </h1>
+
+                <p class="hero-copy">
+                    Consulta el rendimiento de tu inventario y administra
+                    tus productos desde un solo lugar.
+                </p>
+
+                <a class="primary-button" href="/html/registros.html">
+                    Agregar producto
+                    <i class="bi bi-arrow-up-right"></i>
+                </a>
+            </div>
+
+            <div class="hero-orb">
+                <i class="bi bi-bar-chart-line-fill"></i>
+
+                <span>
+                    Inventario
+                    <br>
+                    inteligente
+                </span>
+            </div>
+        </section>
+
+        <section class="metrics" aria-label="Métricas del inventario">
+
+            <article class="metric-card blue">
+                <div class="metric-icon">
+                    <i class="bi bi-box-seam"></i>
+                </div>
+
+                <p>Productos totales</p>
+                <h2 id="metricProductos">0</h2>
+
+                <span class="metric-caption">
+                    <i class="bi bi-arrow-up"></i>
+                    Inventario activo
+                </span>
+            </article>
+
+            <article class="metric-card pink">
+                <div class="metric-icon">
+                    <i class="bi bi-check2-circle"></i>
+                </div>
+
+                <p>Unidades disponibles</p>
+                <h2 id="metricDisponibles">0</h2>
+
+                <span class="metric-caption">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    Stock en bodega
+                </span>
+            </article>
+
+            <article class="metric-card orange">
+                <div class="metric-icon">
+                    <i class="bi bi-exclamation-triangle"></i>
+                </div>
+
+                <p>Productos agotados</p>
+                <h2 id="metricAgotados">0</h2>
+
+                <span class="metric-caption">
+                    Requieren atención
+                </span>
+            </article>
+
+            <article class="metric-card purple">
+                <div class="metric-icon">
+                    <i class="bi bi-wallet2"></i>
+                </div>
+
+                <p>Valor del inventario</p>
+                <h2 id="metricValor">$0</h2>
+
+                <span class="metric-caption">
+                    Capital estimado
+                </span>
+            </article>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+            <article class="panel chart-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">
+                            <span></span>
+                            ANÁLISIS
+                        </p>
+
+                        <h2>Valor por categoría</h2>
+                    </div>
+
+                    <span class="chip">Actualizado hoy</span>
+                </div>
+
+                <canvas id="graficaInventario" aria-label="Gráfica del valor del inventario por categoría"></canvas>
+            </article>
+
+            <article class="panel activity-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">
+                            <span></span>
+                            ACCESOS RÁPIDOS
+                        </p>
+
+                        <h2>¿Qué deseas hacer?</h2>
+                    </div>
+                </div>
+
+                <a class="quick-action" href="/html/registros.html">
+                    <span class="quick-icon pink-bg">
+                        <i class="bi bi-plus-lg"></i>
+                    </span>
+
+                    <div>
+                        <strong>Registrar producto</strong>
+                        <small>Agrega un artículo al inventario</small>
+                    </div>
+
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a class="quick-action" href="/html/productos.html">
+                    <span class="quick-icon blue-bg">
+                        <i class="bi bi-list-ul"></i>
+                    </span>
+
+                    <div>
+                        <strong>Ver inventario</strong>
+                        <small>Consulta, edita o elimina productos</small>
+                    </div>
+
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        Bottega · Sistema de gestión de inventario · Sophia Rangel
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/inicio.js"></script>
+
+</body>
+
+</html>

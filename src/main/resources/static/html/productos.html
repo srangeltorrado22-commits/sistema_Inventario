@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bottega | Inventario</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/productos.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+        <a class="brand" href="/index.html">
+            <span class="brand-mark">
+                <i class="bi bi-box-seam-fill"></i>
+            </span>
+            Bottega
+        </a>
+
+        <nav class="navigation" aria-label="Navegación principal">
+            <a href="/index.html">
+                <i class="bi bi-grid-1x2-fill"></i>
+                Inicio
+            </a>
+
+            <a href="/html/registros.html">
+                <i class="bi bi-plus-circle"></i>
+                Registrar
+            </a>
+
+            <a class="active" href="/html/productos.html">
+                <i class="bi bi-boxes"></i>
+                Productos
+            </a>
+        </nav>
+
+        <div class="profile">
+            <span>SR</span>
+            <div>
+                <strong>Sophia Rangel</strong>
+                <small>Panel principal</small>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="page-shell">
+
+        <section class="products-header">
+
+            <div>
+                <p class="eyebrow">
+                    <span></span>
+                    INVENTARIO
+                </p>
+
+                <h1>Productos registrados</h1>
+
+                <p>Administra y consulta todos tus artículos.</p>
+            </div>
+
+            <a class="primary-button" href="/html/registros.html">
+                Agregar producto
+                <i class="bi bi-plus-lg"></i>
+            </a>
+
+        </section>
+
+        <section class="panel table-panel">
+
+            <!-- TOOLBAR -->
+            <div class="table-toolbar">
+
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input id="buscarProducto" type="search" placeholder="Buscar producto...">
+                </div>
+
+                <span id="contadorProductos" class="chip">
+                    0 productos
+                </span>
+
+            </div>
+
+            <!-- TABLA -->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Marca</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th>Valor total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaProductos"></tbody>
+                </table>
+            </div>
+
+            <p class="inventory-total">
+                Valor total del inventario
+                <strong id="totalInventario">$0</strong>
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        Bottega · Sistema de gestión de inventario · Sophia Rangel
+    </footer>
+
+    <!-- JS -->
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/productos.js"></script>
+
+</body>
+
+</html>
