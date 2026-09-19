@@ -23,7 +23,7 @@ class ProductosController {
         } catch (error) {
             console.error("Error al crear producto:", error);
 
-            if (error.code === "ER_DUP_ENTRY") {
+            if (error.code === "23505" || error.code === "ER_DUP_ENTRY") {
                 return res.status(409).json({ mensaje: "El código de producto ya existe" });
             }
 
@@ -43,7 +43,7 @@ class ProductosController {
         } catch (error) {
             console.error("Error al actualizar producto:", error);
 
-            if (error.code === "ER_DUP_ENTRY") {
+            if (error.code === "23505" || error.code === "ER_DUP_ENTRY") {
                 return res.status(409).json({ mensaje: "El nuevo código de producto ya está asignado a otro artículo" });
             }
 

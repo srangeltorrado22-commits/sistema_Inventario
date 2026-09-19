@@ -3,30 +3,31 @@ const { conexion } = require("../config/database");
 class ProductosRepository {
 
     async obtenerTodos() {
-        const [productos] = await conexion.execute(`
+        const { rows } = await conexion.query(`
             SELECT codigo, nombre, marca, categoria, precio, cantidad 
             FROM productos 
             ORDER BY id DESC
         `);
-        return productos;
+        return rows;
     }
 
     async obtenerPorCodigo(codigo) {
-        const [productos] = await conexion.execute(
-            "SELECT codigo, nombre, marca, categoria, precio, cantidad FROM productos WHERE codigo = ? LIMIT 1",
+        const { rows } = await conexion.query(
+            "SELECT codigo, nombre, marca, categoria, precio, cantidad FROM productos WHERE codigo = $1 LIMIT 1",
             [codigo]
         );
-        return productos[0] || null;
+        return rows[0] || null;
     }
 
     async crear(producto) {
         const { codigo, nombre, marca, categoria, precio, cantidad } = producto;
 
-        const [resultado] = await conexion.execute(
+        const resultado = await conexion.query(
             `
             INSERT INTO productos 
             (codigo, nombre, marca, categoria, precio, cantidad)
-            VALUES (?, ?, ?, ?, ?, ?)
+            VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING *
             `,
             [
                 codigo,
@@ -44,17 +45,18 @@ class ProductosRepository {
     async actualizar(codigoAnterior, producto) {
         const { codigo, nombre, marca, categoria, precio, cantidad } = producto;
 
-        const [resultado] = await conexion.execute(
+        const resultado = await conexion.query(
             `
             UPDATE productos 
             SET 
-                codigo = ?,
-                nombre = ?,
-                marca = ?,
-                categoria = ?,
-                precio = ?,
-                cantidad = ?
-            WHERE codigo = ?
+                codigo = $1,
+                nombre = $2,
+                marca = $3,
+                categoria = $4,
+                precio = $5,
+                cantidad = $6
+            WHERE codigo = $7
+            RETURNING *
             `,
             [
                 codigo,
@@ -71,8 +73,8 @@ class ProductosRepository {
     }
 
     async eliminar(codigo) {
-        const [resultado] = await conexion.execute(
-            "DELETE FROM productos WHERE codigo = ?",
+        const resultado = await conexion.query(
+            "DELETE FROM productos WHERE codigo = $1 RETURNING *",
             [codigo]
         );
 

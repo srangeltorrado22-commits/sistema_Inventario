@@ -53,14 +53,15 @@ class ProductosService {
         );
 
         const resultado = await productosRepository.actualizar(codigoAnterior, producto);
+        const afectadas = resultado ? (resultado.rowCount !== undefined ? resultado.rowCount : resultado.affectedRows) : 0;
 
-        if (!resultado || resultado.affectedRows === 0) {
+        if (!resultado || afectadas === 0) {
             const error = new Error("Producto no encontrado.");
             error.statusCode = 404;
             throw error;
         }
 
-        return resultado;
+        return resultado.rows ? resultado.rows[0] : resultado;
     }
 
     async eliminarProducto(codigo) {
@@ -71,14 +72,15 @@ class ProductosService {
         }
 
         const resultado = await productosRepository.eliminar(codigo);
+        const afectadas = resultado ? (resultado.rowCount !== undefined ? resultado.rowCount : resultado.affectedRows) : 0;
 
-        if (!resultado || resultado.affectedRows === 0) {
+        if (!resultado || afectadas === 0) {
             const error = new Error("Producto no encontrado.");
             error.statusCode = 404;
             throw error;
         }
 
-        return resultado;
+        return resultado.rows ? resultado.rows[0] : resultado;
     }
 }
 
